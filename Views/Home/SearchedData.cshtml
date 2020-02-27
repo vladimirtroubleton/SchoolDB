@@ -1,0 +1,50 @@
+﻿@model List<SchoolDataBaseApp.ViewModels.StaffViewModel>
+@{
+    ViewData["Title"] = "SearchedData";
+}
+@if (Model.Count == 0)
+{
+    <div class="container">
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-4 text-center"> <p class="display-4">Не найдено</p></div>
+            <div class="col-4"></div>
+        </div>
+        <a href="/Home/Index/" class="btn btn-outline-success" style="margin:10px;">На главную</a>
+    </div>
+}
+else
+{
+
+
+    <div class="container-fluid">
+        <table class="text-center table table-bordered">
+            <tr>
+                <td>Имя</td>
+                <td>Фамилия</td>
+                <td>Возраст</td>
+                <td>Пол</td>
+                <td>Стаж работы</td>
+                <td>Отдел</td>
+                <td>Специализация</td>
+                <td>Действия</td>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.Surname</td>
+                    <td>@item.Age</td>
+                    <td>@item.Gender</td>
+                    <td>@item.ExperienceWork</td>
+                    <td>@item.DepartamentName</td>
+                    <td>@item.Specialization</td>
+
+                    <td><a href="/Home/StaffRecordEdit/@item.Id" class="btn btn-outline-success" style="margin:10px;">Изменить</a><a href="/Home/StaffRecordRemove/@item.Id" class="btn btn-outline-danger">Удалить</a></td>
+                </tr>
+            }
+        </table>
+        <a href="/Home/Index/" class="btn btn-outline-success" style="margin:10px;">На главную</a>
+    </div>
+
+}

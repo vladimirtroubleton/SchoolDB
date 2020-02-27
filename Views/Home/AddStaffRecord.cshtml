@@ -1,0 +1,94 @@
+﻿@model StaffModel
+
+@{
+    ViewData["Title"] = "AddStaffRecord";
+}
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+
+<head>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="//ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="~/js/jquery-ui.css" />
+    <link rel="stylesheet" href="~/js/jquery-ui.min.css" />
+    <link rel="stylesheet" href="~/js/jquery-ui.structure.css" />
+    <link rel="stylesheet" href="~/js/jquery-ui.theme.min.css" />
+</head>
+
+
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="AddStaffRecord">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div class="form-group">
+                        <label asp-for="Name" class="control-label"></label>
+                        <input asp-for="Name" class="form-control" id="search" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Surname" class="control-label"></label>
+                        <input asp-for="Surname" class="form-control" />
+                        <span asp-validation-for="Surname" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Age" class="control-label"></label>
+                        <input asp-for="Age" class="form-control" />
+                        <span asp-validation-for="Age" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Gender" class="control-label"></label>
+                        <select id="Gender" name="Gender" class="form-control">
+                           
+                                <option >Мужской</option>
+                                <option >Женский</option>
+                            
+                        </select>
+                        <span asp-validation-for="Gender" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="ExperienceWork" class="control-label"></label>
+                        <input asp-for="ExperienceWork" class="form-control" />
+                        <span asp-validation-for="ExperienceWork" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="DepartamentId" class="control-label"></label>
+                        <select id="DepartamentId" name="DepartamentId" class="form-control">
+                            @foreach (var item in ViewBag.Departaments)
+                            {
+                                <option value=@item.DepartamentId>@item.DepartamentName</option>
+                            }
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="SpecializationId" class="control-label"></label>
+                        <select id="SpecializationId" name="SpecializationId" class="form-control">
+                            @foreach (var item in ViewBag.Specialization)
+                            {
+                                <option value=@item.SpecializationId>@item.SpecializationName</option>
+                            }
+                        </select>
+
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Добавить" class="btn btn-success" />
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div>
+            <a asp-action="Index" class="btn btn-success">Назад</a>
+        </div>
+    </div>
+
+
+
+</body>
+</html>

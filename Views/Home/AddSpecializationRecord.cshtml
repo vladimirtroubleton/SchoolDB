@@ -1,0 +1,33 @@
+﻿@model SchoolDataBaseApp.Models.SpecializationStaffModel
+
+@{
+    ViewData["Title"] = "AddSpecializationRecord";
+}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="AddSpecializationRecord">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group" style="display:none">
+                        <label asp-for="SpecializationId" class="control-label"></label>
+                        <input asp-for="SpecializationId" class="form-control" />
+                        <span asp-validation-for="SpecializationId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="SpecializationName" class="control-label"></label>
+                        <input asp-for="SpecializationName" class="form-control" />
+                        <span asp-validation-for="SpecializationName" class="text-danger"></span>
+                    </div>
+                 
+                    <div class="form-group">
+                        <input type="submit" value="Добавить" class="btn btn-success" />
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div>
+            <a asp-action="Index" class="btn btn-success">Назад</a>
+        </div>
+    </div>

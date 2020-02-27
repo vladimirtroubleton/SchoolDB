@@ -1,0 +1,27 @@
+﻿@model List<SpecializationStaffModel>
+@{
+    ViewData["Title"] = "Специализации";
+}
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-6 text-center"><a href="/Home/AddSpecializationRecord" class="btn btn-success" style="margin-bottom:50px;">Добавить специализацию</a></div>
+        <div class="col-6 text-center"> <a href="/Home/Index" class="btn btn-success" style="margin-bottom:50px;margin-left:50px;">На главную</a></div>
+        
+       
+    </div>
+
+    <table class="text-center table table-bordered">
+        <tr>
+            <td><h4>Специализации:</h4></td>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.SpecializationName</td>
+            </tr>
+        }
+    </table>
+</div>
+

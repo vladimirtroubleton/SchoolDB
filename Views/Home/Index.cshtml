@@ -1,0 +1,47 @@
+﻿@model List<SchoolDataBaseApp.ViewModels.StaffViewModel>
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-3 text-center"> <a href="/Home/AddStaffRecord" class="btn btn-success" style="margin-bottom:50px;">Добавить сотрудника</a></div>
+        <div class="col-3  text-center"><a href="/Home/LookSpecialization" class="btn btn-success" style="margin-bottom:50px; margin-left:50px;">Посмотреть информацию о специализациях</a></div>
+        <div class="col-3  text-center"><a href="/Home/LookDepartamentsData" class="btn btn-success" style="margin-bottom:50px; margin-left:50px;">Посмотреть информацию о отделах</a></div>
+        <div class="col-3  text-center"><a href="/Home/SearchStaff" class="btn btn-success" style="margin-bottom:50px; margin-left:50px;">Поиск сотрудника</a></div>
+    </div>
+    <table class="text-center table table-bordered">
+        <tr>
+            <td>Имя</td>
+            <td>Фамилия</td>
+            <td>Возраст</td>
+            <td>Пол</td>
+            <td>Стаж работы</td>
+            <td>Отдел</td>
+            <td>Специализация</td>
+            <td>Действия</td>
+        </tr>
+        @foreach (var item in Model)
+        {
+    <tr>
+            <td>@item.Name</td>
+            <td>@item.Surname</td>
+            <td>@item.Age</td>
+            <td>@item.Gender</td>
+            <td>@item.ExperienceWork</td>
+            <td>@item.DepartamentName</td>
+            <td>@item.Specialization</td>
+
+        <td><a href="/Home/StaffRecordEdit/@item.Id" class="btn btn-outline-success" style="margin:10px;">Изменить</a><a href="/Home/StaffRecordRemove/@item.Id" class="btn btn-outline-danger">Удалить</a></td>
+    </tr>
+        }
+    </table>
+</div>
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-3">
+                <a href="/Home/GetExperiencePeople" class="btn btn-outline-success" style="margin:10px;">Показать самых опытных сотрудников</a>
+            </div>
+        </div>
+    </div>
+</footer>
